@@ -53,8 +53,8 @@ ready = (error, us) ->
         .attr("d", path)
 
 queue()
-  .defer(d3.json, "us.json")
-  .defer(d3.tsv, "unemployment.tsv", (d) -> rateById.set(d.id, +d.rate) )
+  .defer(d3.json, "data/us.json")
+  .defer(d3.tsv, "data/unemployment.tsv", (d) -> rateById.set(d.id, +d.rate) )
   .await(ready)
 
 d3.select(self.frameElement).style("height", height + "px")

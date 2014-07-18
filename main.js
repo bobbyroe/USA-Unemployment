@@ -57,7 +57,7 @@ ready = function(error, us) {
   })).attr("class", "states").attr("d", path);
 };
 
-queue().defer(d3.json, "us.json").defer(d3.tsv, "unemployment.tsv", function(d) {
+queue().defer(d3.json, "data/us.json").defer(d3.tsv, "data/unemployment.tsv", function(d) {
   return rateById.set(d.id, +d.rate);
 }).await(ready);
 
